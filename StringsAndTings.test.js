@@ -1,71 +1,33 @@
-const { TestScheduler } = require('jest');
-const StringsAndTings = require('./StringsAndTings');
+const StringsAndTings = require('./StringsAndTings')
 
 
-test("camelCaseTest", () => {
+let methods = new StringsAndTings()
 
-    let stringsAndTings = new StringsAndTings();
-    let input = "she sells sea shells";
-    let expected = "She Sells Sea Shells";
+test('Cammel Case - Test', () => {
+    const str = "hello world"
+    expect(methods.camelCase(str)).toEqual("helloWorld")
+})
 
-    let actual = stringsAndTings.camelCase(15);
-
-    expect(actual).toEqual(expected);
-});
-
-test("reverseTest", () => {
-
-    let stringsAndTings = new StringsAndTings();
-    let input = "she sells sea shells";
-    let expected = "sllehs aes slles ehs";
-
-    let actual = stringsAndTings.camelCase(15);
-
-    expect(actual).toEqual(expected);
-});
-
-test("reverseWordsTest", () => {
-
-    let stringsAndTings = new StringsAndTings();
-    let input = "she sells sea shells";
-    let expected = "ehs slles aes sllehs";
-
-    let actual = stringsAndTings.camelCase(15);
-
-    expect(actual).toEqual(expected);
-});
-
-test("reverseThenCamelCaseTest", () => {
-
-    let stringsAndTings = new StringsAndTings();
-    let input = "she sells sea shells";
-    let expected = "Sllehs Aes Slles Ehs";
-
-    let actual = stringsAndTings.camelCase(15);
-
-    expect(actual).toEqual(expected);
-});
-
-test("removeFirstAndLastCharacterTest", () => {
-
-    let stringsAndTings = new StringsAndTings();
-    let input = "she sells sea shells";
-    let expected = "he sells sea shell";
-
-    let actual = stringsAndTings.camelCase(15);
-
-    expect(actual).toEqual(expected);
-});
+test('Reverse String - Test', () => {
+    const str = "hello world"
+    expect(methods.reverseString(str)).toEqual("dlrow olleh")
+})
 
 
-test("invertCasingTest1", () => {
+test('Reverse Then Camel Case - Test', () => {
+    const str = "hello world"
+    expect(methods.reverseThenCamelCase(str)).toEqual('dlrowOlleh')
+})
 
-    let stringsAndTings = new StringsAndTings();
-    let input = "shE sells SEA sHeLlS";
-    let expected = "SHe SELLS sea ShElLs";
+test('Remove First And Last Character - Test', () => {
+    const str = "hello world"
+    expect(methods.removeFirstAndLastCharacter(str)).toEqual('ello worl')
+})
 
-    let actual = stringsAndTings.camelCase(15);
+test('Invert Casing - Test', () => {
+    const str = "Hi, My name is AbC."
 
-    expect(actual).toEqual(expected);
-});
+    expect(methods.invertCasing(str)).toEqual("hI, mY NAME IS aBc.")
 
+
+})
